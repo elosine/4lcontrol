@@ -1,11 +1,13 @@
 #include <SharpIR.h>
 
 #define ir A7
+#define ir2 A6
 #define model 20150
 
 boolean done = false;
 
 SharpIR sharp(ir, 25, 93, model);
+SharpIR sharp2(ir2, 25, 93, model);
 // ir: the pin where your sensor is attached
 // 25: the number of readings the library will make before calculating a mean distance
 // 93: the difference between two consecutive measurements to be taken as valid
@@ -15,11 +17,13 @@ SharpIR sharp(ir, 25, 93, model);
 void setup() {
   Serial.begin(9600);
   pinMode (ir, INPUT);
+  pinMode (ir2, INPUT);
 }
 void loop() {
   
   int dis = sharp.distance();
-  Serial.println(dis);
+  int dis2 = sharp.distance();
+  Serial.println(dis2);
   delay(15);
 
 }
